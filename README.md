@@ -1,381 +1,381 @@
 # Snap Fit Charger
 
-**Ultra-Compact Modular USB-C Charger with Isolated Flyback Topology**
+**Cargador USB-C Modular Ultra-Compacto con Topología Flyback Aislada**
 
-![Status](https://img.shields.io/badge/status-MVP%20Development-yellow)
-![Power](https://img.shields.io/badge/power-20W%20USB--PD-blue)
-![Safety](https://img.shields.io/badge/safety-IEC%2062368--1-green)
+![Estado](https://img.shields.io/badge/estado-Desarrollo%20MVP-yellow)
+![Potencia](https://img.shields.io/badge/potencia-20W%20USB--PD-blue)
+![Seguridad](https://img.shields.io/badge/seguridad-IEC%2062368--1-green)
 
 ---
 
-## 📋 Project Overview
+## 📋 Descripción General del Proyecto
 
-Snap Fit Charger is an innovative ultra-compact AC-DC power adapter designed for maximum portability and universal compatibility. The project combines cutting-edge power electronics with modular snap-fit mechanical design to create a truly versatile charging solution.
+Snap Fit Charger es un adaptador de corriente AC-DC ultra-compacto e innovador diseñado para máxima portabilidad y compatibilidad universal. El proyecto combina electrónica de potencia de vanguardia con diseño mecánico modular snap-fit para crear una solución de carga verdaderamente versátil.
 
-**Key Innovation**: Snap-fit modular plug system allows travelers to swap regional adapters without carrying multiple chargers.
+**Innovación Clave**: Sistema modular de plugs snap-fit que permite a los viajeros intercambiar adaptadores regionales sin necesidad de cargar múltiples cargadores.
 
-### Target Specifications
+### Especificaciones Objetivo
 
-- **Input**: 90–264 V AC, 50/60 Hz (Universal)
-- **Output**: USB-C with USB-PD 3.0
+- **Entrada**: 90–264 V AC, 50/60 Hz (Universal)
+- **Salida**: USB-C con USB-PD 3.0
   - 5V @ 3A (15W)
   - 9V @ 2.22A (20W)
   - 12V @ 1.67A (20W)
-- **Maximum Power**: 20W
-- **Topology**: High-frequency isolated Flyback converter
-- **Dimensions**: Target < 40mm × 40mm × 25mm
-- **Efficiency**: >85% at rated load
-- **Safety**: IEC 62368-1 compliant
+- **Potencia Máxima**: 20W
+- **Topología**: Convertidor Flyback aislado de alta frecuencia
+- **Dimensiones**: Objetivo < 40mm × 40mm × 25mm
+- **Eficiencia**: >85% a carga nominal
+- **Seguridad**: Cumplimiento IEC 62368-1
 
 ---
 
-## 🎯 Problem Statement
+## 🎯 Planteamiento del Problema
 
-**Current Pain Points:**
-1. Travelers need multiple chargers for different regions
-2. Bulky chargers occupy premium luggage space
-3. Proprietary charging standards create e-waste
-4. Non-modular designs cannot be repaired
+**Puntos de Dolor Actuales:**
+1. Los viajeros necesitan múltiples cargadores para diferentes regiones
+2. Cargadores voluminosos ocupan espacio premium en el equipaje
+3. Estándares de carga propietarios generan basura electrónica
+4. Diseños no modulares imposibilitan reparaciones
 
-**Our Solution:**
-A palm-sized, modular USB-C charger with interchangeable snap-fit plug adapters, universal input voltage, and compliance with USB Power Delivery standards.
+**Nuestra Solución:**
+Un cargador USB-C del tamaño de la palma de la mano, con adaptadores de enchufe intercambiables mediante snap-fit, voltaje de entrada universal y cumplimiento con estándares USB Power Delivery.
 
 ---
 
-## 🏗️ Repository Structure
+## 🏗️ Estructura del Repositorio
 
 ```
 snap-fit-charger/
-├── README.md                          # This file
-├── LICENSE                            # MIT License
+├── README.md                          # Este archivo
+├── LICENSE                            # Licencia MIT
 │
 ├── hardware/
 │   ├── pcb/
-│   │   ├── README.md                  # PCB design overview
+│   │   ├── README.md                  # Descripción del diseño PCB
 │   │   ├── schematic/
 │   │   │   ├── snapfit_schematic.pdf
 │   │   │   ├── snapfit_schematic.kicad_sch
-│   │   │   └── block_diagram.png
+│   │   │   └── diagrama_bloques.png
 │   │   ├── layout/
 │   │   │   ├── snapfit_layout.kicad_pcb
 │   │   │   ├── gerbers/
-│   │   │   └── 3d_view.png
+│   │   │   └── vista_3d.png
 │   │   ├── bom/
 │   │   │   ├── mvp_charger_power_bom.csv
-│   │   │   └── sourcing_notes.md
-│   │   └── design_rules/
+│   │   │   └── notas_abastecimiento.md
+│   │   └── reglas_diseno/
 │   │       ├── creepage_clearance.md
-│   │       └── thermal_design.md
+│   │       └── diseno_termico.md
 │   │
-│   └── mechanical/
-│       ├── enclosure/
-│       │   ├── snapfit_case_top.step
-│       │   ├── snapfit_case_bottom.step
-│       │   └── assembly.pdf
-│       └── plug_adapters/
-│           ├── type_a_us.step           # US/North America
-│           ├── type_c_eu.step           # Europe
-│           ├── type_g_uk.step           # UK
-│           └── snap_mechanism.pdf
+│   └── mecanico/
+│       ├── carcasa/
+│       │   ├── snapfit_tapa_superior.step
+│       │   ├── snapfit_tapa_inferior.step
+│       │   └── ensamble.pdf
+│       └── adaptadores_plug/
+│           ├── tipo_a_us.step           # EE.UU./Norteamérica
+│           ├── tipo_c_eu.step           # Europa
+│           ├── tipo_g_uk.step           # Reino Unido
+│           └── mecanismo_snap.pdf
 │
 ├── firmware/
-│   ├── usb_pd_config/
+│   ├── config_usb_pd/
 │   │   ├── stusb4500_config.h
-│   │   └── pd_profiles.c
+│   │   └── perfiles_pd.c
 │   └── README.md
 │
 ├── docs/
-│   ├── standards/
-│   │   ├── IEC_62368-1_summary.md
-│   │   ├── USB_PD_3.0_spec.pdf
-│   │   └── EMC_requirements.md
-│   ├── design_notes/
-│   │   ├── architecture_overview.md
-│   │   ├── component_selection.md
-│   │   └── power_budget.xlsx
-│   ├── user_manual/
-│   │   ├── quick_start.md
-│   │   └── safety_warnings.md
-│   └── competition/
-│       └── honpe_challenge_submission.md
+│   ├── normas/
+│   │   ├── resumen_IEC_62368-1.md
+│   │   ├── especificacion_USB_PD_3.0.pdf
+│   │   └── requisitos_EMC.md
+│   ├── notas_diseno/
+│   │   ├── descripcion_arquitectura.md
+│   │   ├── seleccion_componentes.md
+│   │   └── presupuesto_potencia.xlsx
+│   ├── manual_usuario/
+│   │   ├── inicio_rapido.md
+│   │   └── advertencias_seguridad.md
+│   └── competencia/
+│       └── presentacion_honpe_challenge.md
 │
-├── tests/
-│   ├── electrical/
-│   │   ├── efficiency_test.md
-│   │   ├── load_regulation.md
-│   │   └── test_results.csv
-│   ├── thermal/
-│   │   ├── thermal_test_plan.md
-│   │   └── ir_images/
+├── pruebas/
+│   ├── electricas/
+│   │   ├── prueba_eficiencia.md
+│   │   ├── regulacion_carga.md
+│   │   └── resultados_pruebas.csv
+│   ├── termicas/
+│   │   ├── plan_pruebas_termicas.md
+│   │   └── imagenes_ir/
 │   ├── emc/
-│   │   └── conducted_emissions.md
-│   └── safety/
-│       ├── hipot_test.md
-│       └── insulation_resistance.md
+│   │   └── emisiones_conducidas.md
+│   └── seguridad/
+│       ├── prueba_hipot.md
+│       └── resistencia_aislamiento.md
 │
-├── manufacturing/
-│   ├── assembly_instructions.md
-│   ├── pcb_stackup.pdf
+├── manufactura/
+│   ├── instrucciones_ensamble.md
+│   ├── stackup_pcb.pdf
 │   ├── pick_and_place/
-│   └── inspection_checklist.md
+│   └── checklist_inspeccion.md
 │
 └── media/
     ├── renders/
-    │   ├── product_hero.png
-    │   └── exploded_view.png
-    ├── photos/
+    │   ├── hero_producto.png
+    │   └── vista_explosionada.png
+    ├── fotos/
     └── videos/
 ```
 
 ---
 
-## 🔧 Hardware Architecture
+## 🔧 Arquitectura de Hardware
 
-### Power Stage Blocks
+### Bloques de Etapa de Potencia
 
-1. **AC Input & EMI Filter**
-   - SMD Fuse (F1) - 2A/250V
-   - MOV (MOV1) - 275VAC surge protection
-   - X-cap (CX1) + Y-caps (CY1, CY2) - EMI suppression
-   - Common-mode choke (L1) - Differential/common-mode attenuation
+1. **Entrada AC y Filtro EMI**
+   - Fusible SMD (F1) - 2A/250V
+   - MOV (MOV1) - Protección contra sobretensiones 275VAC
+   - Capacitor X (CX1) + Capacitores Y (CY1, CY2) - Supresión EMI
+   - Choke de modo común (L1) - Atenuación diferencial/modo común
 
-2. **Primary Flyback Converter**
-   - Controller IC (U1): HF500-15 (PSR with integrated MOSFET)
-   - Startup network: R1, C3, C4
-   - Primary winding of T1
+2. **Convertidor Flyback Primario**
+   - IC Controlador (U1): HF500-15 (PSR con MOSFET integrado)
+   - Red de arranque: R1, C3, C4
+   - Bobinado primario de T1
 
-3. **Isolation Transformer**
-   - Planar transformer (T1) - 1500Vrms reinforced insulation
-   - Centered placement for optimal creepage
-   - Isolation slots in PCB
+3. **Transformador de Aislamiento**
+   - Transformador planar (T1) - Aislamiento reforzado 1500Vrms
+   - Ubicación centrada para óptimo creepage
+   - Ranuras de aislamiento en PCB
 
-4. **Secondary Synchronous Rectification**
-   - SR Controller (U2): UCC24610D
-   - Low Rds(on) MOSFET (Q1)
-   - LC output filter: L2 (4.7µH) + C5/C6 (22µF each)
-   - Feedback divider: R2, R3
+4. **Rectificación Síncrona Secundaria**
+   - Controlador SR (U2): UCC24610D
+   - MOSFET de bajo Rds(on) (Q1)
+   - Filtro de salida LC: L2 (4.7µH) + C5/C6 (22µF cada uno)
+   - Divisor de retroalimentación: R2, R3
 
-5. **USB-PD Controller & Output**
-   - USB-PD IC (U3): STUSB4500QTR
-   - CC line resistors (R4, R5) - Profile detection
-   - Output filtering: C7, C8
-   - USB-C connector (J1)
+5. **Controlador USB-PD y Salida**
+   - IC USB-PD (U3): STUSB4500QTR
+   - Resistores línea CC (R4, R5) - Detección de perfil
+   - Filtrado de salida: C7, C8
+   - Conector USB-C (J1)
 
-### PCB Stack-up (4 layers)
+### Apilamiento PCB (4 capas)
 
-- **Layer 1**: Primary-side signals (high voltage)
-- **Layer 2**: Primary ground plane (isolated)
-- **Layer 3**: Secondary ground plane
-- **Layer 4**: Secondary-side signals (low voltage)
+- **Capa 1**: Señales lado primario (alto voltaje)
+- **Capa 2**: Plano de tierra primario (aislado)
+- **Capa 3**: Plano de tierra secundario
+- **Capa 4**: Señales lado secundario (bajo voltaje)
 
-**Isolation**: ≥3.2mm creepage/clearance between primary and secondary
-
----
-
-## 🎨 Mechanical Innovation
-
-### Snap-Fit Plug System
-
-The modular plug adapter system allows users to:
-- Swap plug types in seconds without tools
-- Carry only needed regional adapters
-- Replace damaged plugs individually
-- Reduce e-waste by keeping the power module
-
-**Mechanism Features:**
-- Spring-loaded locking tabs
-- Polarized alignment guides
-- Gold-plated AC contacts rated for 10,000+ insertions
-- Compact storage: adapters stack together
+**Aislamiento**: ≥3.2mm creepage/clearance entre primario y secundario
 
 ---
 
-## 📊 Bill of Materials (Key Components)
+## 🎨 Innovación Mecánica
 
-| Ref | Component | Part Number | Qty | Function |
+### Sistema de Plug Snap-Fit
+
+El sistema modular de adaptadores de enchufe permite a los usuarios:
+- Intercambiar tipos de plug en segundos sin herramientas
+- Cargar solo los adaptadores regionales necesarios
+- Reemplazar plugs dañados individualmente
+- Reducir basura electrónica manteniendo el módulo de potencia
+
+**Características del Mecanismo:**
+- Pestañas de bloqueo con resorte
+- Guías de alineación polarizadas
+- Contactos AC chapados en oro clasificados para 10,000+ inserciones
+- Almacenamiento compacto: los adaptadores se apilan juntos
+
+---
+
+## 📊 Lista de Materiales (Componentes Clave)
+
+| Ref | Componente | Número de Parte | Cant | Función |
 |-----|-----------|-------------|-----|----------|
-| U1 | Flyback Controller | HF500-15 | 1 | Primary-side regulation |
-| U2 | SR Controller | UCC24610D | 1 | Synchronous rectification |
-| U3 | USB-PD Controller | STUSB4500QTR | 1 | Power delivery negotiation |
-| T1 | Planar Transformer | Custom | 1 | Galvanic isolation |
-| Q1 | Sync Rectifier FET | TBD (30V, <10mΩ) | 1 | Secondary rectification |
-| L1 | Common-Mode Choke | TBD | 1 | EMI filtering |
-| L2 | Output Inductor | 4.7µH, 3A | 1 | Output filtering |
-| J1 | USB-C Connector | GCT USB4105 | 1 | Power output |
+| U1 | Controlador Flyback | HF500-15 | 1 | Regulación lado primario |
+| U2 | Controlador SR | UCC24610D | 1 | Rectificación síncrona |
+| U3 | Controlador USB-PD | STUSB4500QTR | 1 | Negociación power delivery |
+| T1 | Transformador Planar | Personalizado | 1 | Aislamiento galvánico |
+| Q1 | FET Rectificador Sync | TBD (30V, <10mΩ) | 1 | Rectificación secundaria |
+| L1 | Choke Modo Común | TBD | 1 | Filtrado EMI |
+| L2 | Inductor de Salida | 4.7µH, 3A | 1 | Filtrado de salida |
+| J1 | Conector USB-C | GCT USB4105 | 1 | Salida de potencia |
 
-*Full BOM available in `/hardware/pcb/bom/`*
-
----
-
-## 🚀 Development Roadmap
-
-### Phase 1: MVP (Current)
-- [x] Initial schematic design
-- [x] Component selection
-- [ ] PCB layout (4-layer)
-- [ ] Design rule verification
-- [ ] Thermal simulation
-
-### Phase 2: Prototype
-- [ ] PCB fabrication (5 units)
-- [ ] Component procurement
-- [ ] Assembly and bring-up
-- [ ] Basic electrical testing
-- [ ] Snap-fit enclosure 3D printing
-
-### Phase 3: Validation
-- [ ] Full electrical characterization
-- [ ] Thermal testing
-- [ ] Pre-compliance EMC testing
-- [ ] Safety testing (hipot, insulation)
-- [ ] Mechanical durability testing
-
-### Phase 4: Production Readiness
-- [ ] Design optimization based on tests
-- [ ] Certification (CE, FCC, UL)
-- [ ] Manufacturing partner selection
-- [ ] Tooling for injection molding
-- [ ] Pilot production run
+*BOM completo disponible en `/hardware/pcb/bom/`*
 
 ---
 
-## 🧪 Testing Strategy
+## 🚀 Hoja de Ruta de Desarrollo
 
-### Electrical Tests
-- Input voltage range (85-270V AC)
-- Load regulation (0-100% load)
-- Line regulation
-- Efficiency mapping
-- Transient response
-- Short circuit protection
+### Fase 1: MVP (Actual)
+- [x] Diseño esquemático inicial
+- [x] Selección de componentes
+- [ ] Layout PCB (4 capas)
+- [ ] Verificación de reglas de diseño
+- [ ] Simulación térmica
 
-### Thermal Tests
-- Ambient temperature rise testing
-- Component temperature mapping (IR camera)
-- Derating verification
-- Continuous operation stress test
+### Fase 2: Prototipo
+- [ ] Fabricación PCB (5 unidades)
+- [ ] Adquisición de componentes
+- [ ] Ensamble y puesta en marcha
+- [ ] Pruebas eléctricas básicas
+- [ ] Impresión 3D carcasa snap-fit
 
-### Safety & Compliance
-- Insulation resistance (>5MΩ)
-- Hipot testing (primary-secondary, 3000V AC)
-- Creepage/clearance verification
-- Flammability (UL94 V-0)
+### Fase 3: Validación
+- [ ] Caracterización eléctrica completa
+- [ ] Pruebas térmicas
+- [ ] Pruebas EMC pre-cumplimiento
+- [ ] Pruebas de seguridad (hipot, aislamiento)
+- [ ] Pruebas de durabilidad mecánica
 
-### EMC Tests
-- Conducted emissions (CISPR 32)
-- Radiated emissions
-- ESD immunity
-- Surge immunity
-
----
-
-## 🎓 Design for Honpe Challenge
-
-This project is being developed for submission to the **Honpe Challenge 2026** - Consumer Device Innovation Competition.
-
-### Competition Alignment
-
-**Problem Identified**: Travel inconvenience and e-waste from non-modular chargers
-
-**Target User**: 
-- International travelers
-- Digital nomads
-- Students studying abroad
-- Business professionals
-
-**Context of Use**: 
-- Hotels, airports, cafés, coworking spaces
-- Multiple devices per user (phone, tablet, laptop accessories)
-- Frequent regional travel
-
-**Device Objective**: 
-Provide a single, compact charging solution that adapts to any region through snap-fit modularity while maintaining safety and efficiency.
-
-**Innovation Points**:
-1. Snap-fit modular plug system (mechanical)
-2. Ultra-compact flyback topology (electrical)
-3. Universal input voltage (90-264V AC)
-4. USB-PD compatibility (software)
-
-*See `/docs/competition/` for full submission materials*
+### Fase 4: Preparación para Producción
+- [ ] Optimización de diseño basada en pruebas
+- [ ] Certificación (CE, FCC, UL)
+- [ ] Selección de socio de manufactura
+- [ ] Herramental para moldeo por inyección
+- [ ] Corrida piloto de producción
 
 ---
 
-## 👥 Team
+## 🧪 Estrategia de Pruebas
 
-**Project Lead**: [Your Name]
-- University: [Your University]
-- Major: [Your Major]
-- Email: [Your Email]
+### Pruebas Eléctricas
+- Rango de voltaje de entrada (85-270V AC)
+- Regulación de carga (0-100% carga)
+- Regulación de línea
+- Mapeo de eficiencia
+- Respuesta transitoria
+- Protección contra cortocircuito
 
-**Team Members**:
-- [Member 2 Name] - [Role]
-- [Member 3 Name] - [Role]
+### Pruebas Térmicas
+- Pruebas de elevación de temperatura ambiente
+- Mapeo de temperatura de componentes (cámara IR)
+- Verificación de derating
+- Prueba de estrés de operación continua
 
----
+### Seguridad y Cumplimiento
+- Resistencia de aislamiento (>5MΩ)
+- Pruebas hipot (primario-secundario, 3000V AC)
+- Verificación creepage/clearance
+- Inflamabilidad (UL94 V-0)
 
-## 📚 References & Standards
-
-- IEC 62368-1: Audio/video, information and communication technology equipment - Safety requirements
-- USB Power Delivery Specification Rev 3.0
-- CISPR 32: Electromagnetic compatibility of multimedia equipment
-- UL 60950-1: Safety of information technology equipment
-- Power Integrations Application Notes
-- Texas Instruments Synchronous Rectification Design Guide
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-**Note**: This is an open hardware project. Commercial use requires proper safety certification and compliance testing.
+### Pruebas EMC
+- Emisiones conducidas (CISPR 32)
+- Emisiones radiadas
+- Inmunidad ESD
+- Inmunidad a sobretensiones
 
 ---
 
-## 🤝 Contributing
+## 🎓 Diseño para Honpe Challenge
 
-We welcome contributions! Areas where help is needed:
-- PCB layout review
-- Thermal simulation
-- Mechanical design optimization
-- Documentation improvements
-- Testing and validation
+Este proyecto está siendo desarrollado para presentación al **Honpe Challenge 2026** - Competencia de Innovación en Dispositivos de Consumo.
 
-Please read our contribution guidelines before submitting pull requests.
+### Alineación con la Competencia
 
----
+**Problemática Detectada**: Inconveniencia de viaje y basura electrónica por cargadores no modulares
 
-## 📞 Contact
+**Usuario Objetivo**: 
+- Viajeros internacionales
+- Nómadas digitales
+- Estudiantes en el extranjero
+- Profesionales de negocios
 
-**Project Email**: [your-email@example.com]
+**Contexto de Uso**: 
+- Hoteles, aeropuertos, cafés, espacios de coworking
+- Múltiples dispositivos por usuario (teléfono, tablet, accesorios de laptop)
+- Viajes regionales frecuentes
 
-**Honpe Challenge Contact**: honpechallenge@honpe.mx
+**Objetivo del Dispositivo**: 
+Proporcionar una solución de carga única y compacta que se adapte a cualquier región mediante modularidad snap-fit manteniendo seguridad y eficiencia.
 
-**Repository**: [GitHub/GitLab URL]
+**Puntos de Innovación**:
+1. Sistema modular de plug snap-fit (mecánico)
+2. Topología flyback ultra-compacta (eléctrico)
+3. Voltaje de entrada universal (90-264V AC)
+4. Compatibilidad USB-PD (software)
 
----
-
-## ⚠️ Safety Warning
-
-**This device operates with potentially lethal AC voltages.**
-
-- Only qualified personnel should attempt to build or modify this design
-- Always use isolation transformers during testing
-- Ensure proper enclosure and insulation before connecting to mains
-- Follow all applicable electrical safety codes and regulations
-- This design is provided for educational purposes - commercial use requires full compliance testing and certification
+*Ver `/docs/competencia/` para materiales completos de presentación*
 
 ---
 
-## 🙏 Acknowledgments
+## 👥 Equipo
 
-- Honpe Prototyping México for organizing the challenge
-- Power electronics community for open-source references
-- Component manufacturers for detailed datasheets and application notes
+**Líder del Proyecto**: [Tu Nombre]
+- Universidad: [Tu Universidad]
+- Carrera: [Tu Carrera]
+- Correo: [Tu Correo]
+
+**Miembros del Equipo**:
+- [Nombre Miembro 2] - [Rol]
+- [Nombre Miembro 3] - [Rol]
 
 ---
 
-**Last Updated**: October 2025  
-**Project Status**: MVP Development Phase  
-**Next Milestone**: PCB Layout Completion
+## 📚 Referencias y Normas
+
+- IEC 62368-1: Equipos de audio/video, tecnología de la información y comunicación - Requisitos de seguridad
+- Especificación USB Power Delivery Rev 3.0
+- CISPR 32: Compatibilidad electromagnética de equipos multimedia
+- UL 60950-1: Seguridad de equipos de tecnología de la información
+- Notas de Aplicación Power Integrations
+- Guía de Diseño de Rectificación Síncrona Texas Instruments
+
+---
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
+
+**Nota**: Este es un proyecto de hardware abierto. El uso comercial requiere certificación de seguridad adecuada y pruebas de cumplimiento.
+
+---
+
+## 🤝 Contribuciones
+
+¡Agradecemos contribuciones! Áreas donde se necesita ayuda:
+- Revisión de layout PCB
+- Simulación térmica
+- Optimización de diseño mecánico
+- Mejoras en documentación
+- Pruebas y validación
+
+Por favor lee nuestras pautas de contribución antes de enviar pull requests.
+
+---
+
+## 📞 Contacto
+
+**Correo del Proyecto**: [tu-correo@example.com]
+
+**Contacto Honpe Challenge**: honpechallenge@honpe.mx
+
+**Repositorio**: [URL GitHub/GitLab]
+
+---
+
+## ⚠️ Advertencia de Seguridad
+
+**Este dispositivo opera con voltajes AC potencialmente letales.**
+
+- Solo personal calificado debe intentar construir o modificar este diseño
+- Siempre usar transformadores de aislamiento durante pruebas
+- Asegurar carcasa y aislamiento apropiados antes de conectar a red eléctrica
+- Seguir todos los códigos y regulaciones de seguridad eléctrica aplicables
+- Este diseño se proporciona con fines educativos - el uso comercial requiere pruebas de cumplimiento y certificación completas
+
+---
+
+## 🙏 Agradecimientos
+
+- Honpe Prototyping México por organizar el desafío
+- Comunidad de electrónica de potencia por referencias de código abierto
+- Fabricantes de componentes por hojas de datos detalladas y notas de aplicación
+
+---
+
+**Última Actualización**: Octubre 2025  
+**Estado del Proyecto**: Fase de Desarrollo MVP  
+**Siguiente Hito**: Completar Layout PCB
