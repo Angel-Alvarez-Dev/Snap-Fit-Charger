@@ -10,7 +10,7 @@
 
 ## 📋 Descripción General del Proyecto
 
-Snap Fit Charger es un adaptador de corriente AC-DC ultra-compacto e innovador diseñado para máxima portabilidad y compatibilidad universal. El proyecto combina electrónica de potencia de vanguardia con diseño mecánico modular snap-fit para crear una solución de carga verdaderamente versátil.
+Snap Fit Charger es un adaptador de corriente AC-DC ultra-compacto e innovador diseñado para máxima portabilidad y compatibilidad universal. El proyecto combina electrónica de potencia con diseño mecánico modular snap-fit para crear una solución de carga verdaderamente versátil.
 
 **Innovación Clave**: Sistema modular de plugs snap-fit que permite a los viajeros intercambiar adaptadores regionales sin necesidad de cargar múltiples cargadores.
 
